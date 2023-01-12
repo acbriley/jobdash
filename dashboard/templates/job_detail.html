@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h2>{{job.title}}</h2>
+
+<h4>{{ job.company }} | {{ job.location }} | {{ job.workplace }}</h4>
+<p>{{ job.details }}</p>
+<p>Find more information on this position <a href="{{job.link}}}">here.</a> </p>
+{% endblock %}

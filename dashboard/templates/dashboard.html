@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1>Recent Jobs</h1>
+{% for job in jobs %}
+  <h3><a href="{% url 'job_detail' job.pk%}">
+    {{job.title}}
+  </a></h3> 
+  <p class="text-truncate" style="max-width: 800px;">{{ job.details|truncatewords:15 }}
+  </p>
+{% endfor %}
+{% endblock %}
