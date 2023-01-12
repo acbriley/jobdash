@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<h1>Recent Jobs</h1>
-{% for job in jobs %}
-  <h3><a href="{% url 'job_detail' job.pk%}">
-    {{job.title}}
-  </a></h3> 
-  <p class="text-truncate" style="max-width: 800px;">{{ job.details|truncatewords:15 }}
-  </p>
+<div class="container" style="padding-bottom: 1em">
+  <h1>Recent Jobs</h1>
+</div>
+
+  {% for job in jobs %}
+  <div class="container" style="padding-top: .5em">
+    <h3><a href="{% url 'job_detail' job.pk%}">
+      {{job.title}}
+    </a></h3> 
+    <p class="text-truncate" style="max-width: 800px;">{{ job.details|truncatewords:15 }}</p>
+  </div>
+
 {% endfor %}
 {% endblock %}
