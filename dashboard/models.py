@@ -22,6 +22,7 @@ class User(AbstractUser):
         max_length=100,
         unique=True,
     )
+    jobs = models.ManyToManyField(Job)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 

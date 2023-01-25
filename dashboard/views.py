@@ -65,5 +65,12 @@ def signup(req):
 
 
 def my_jobs(req):
-    if req.user.is_authenticated():
-        return render(req, 'my_jobs.html')
+    if req.user.is_authenticated:
+        jobs = User.objects.values_list('jobs')
+        context = {
+            'jobs': jobs
+        }
+        return render(req, 'my_jobs.html', context)
+    else:
+        messages.info(req, 'You must be logged in to see this page.')
+        return redirect('/')

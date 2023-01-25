@@ -1,5 +1,22 @@
 {% extends "base.html" %}
 
 {% block page_content %}
+<div class="container" style="padding-bottom: 1em">
+  <h2>Welcome back to your personal dashboard, {{ user.email }}</h2>
+</div>
+
+<div class="container" style="padding-top: .5em">
+  <h3>Saved Jobs</h3>
+
+  {% for job in jobs %}
+  <div class="container" style="padding-top: .5em">
+    <h3>
+      {{job}}
+    </h3> 
+    <p class="text-truncate" style="max-width: 800px;">{{ job.details|truncatewords:15 }}</p>
+  </div>
+  {% endfor %}
+</div>
+
 
 {% endblock %}
